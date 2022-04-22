@@ -15,14 +15,25 @@ exports.register =(req, res) =>{
         if(error){
             console.log(error);
         }
+        //we will check if the email is founded
+        //write your code here
+        //
+        if(name==''&&email==''&&password==''&&passwordConfirm==''){
+            
+            return res.render('register', {
+                message: "you can't register without entering request info"
+                });
+        }
         
              if(password !== passwordConfirm){
                 return res.render('register', {
                 message: 'Passwords do not match'
                 });
+                
         }
         else{
             DB.query('INSERT INTO user SET ?',{name:name,email:email,password:password,passwordConfirm:passwordConfirm},(error,results)=>{
+                
                 if(error)
                  {console.log(results)}
                 else{
