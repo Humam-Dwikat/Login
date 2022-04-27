@@ -11,7 +11,7 @@ exports.register =(req, res) =>{
 
     const{ name, email, password, passwordConfirm} = req.body;
 
-    DB.query('SELECT email FROM users WHERE email = ?',[email],(error,results) => {
+    DB.query('SELECT email FROM user WHERE email = ?',[email],(error,results) => {
         if(error){
             console.log(error);
         }
