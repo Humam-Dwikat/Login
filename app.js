@@ -1,4 +1,3 @@
-
 const express=require("express");
 const path = require('path');
 const mysql=require("mysql");
@@ -33,6 +32,7 @@ DB.connect((error)=>{
 //Define Routes
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
+app.use('/logauth', require('./routes/logauth'));
 
 app.listen(4000,()=>{
     console.log("Hello we are in the Port 4000");
