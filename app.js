@@ -28,12 +28,13 @@ DB.connect((error)=>{
         console.log("MYSQL is Connected...");
     }
 })
-
 //Define Routes
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 app.use('/logauth', require('./routes/logauth'));
 
-app.listen(4000,()=>{
-    console.log("Hello we are in the Port 4000");
+
+const port=process.env.port||4000;
+app.listen(port,()=>{
+    console.log(`Hello we are in the Port ${port}`);
 })
