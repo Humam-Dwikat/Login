@@ -10,10 +10,9 @@
 </head>
 <body>
     <nav>
-        <h4>Home Page</h4>
+        <h4>Login Page</h4>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
         </ul>
     </nav>
@@ -21,14 +20,10 @@
     <div class="container ">
         <div class="card">
             <div class="card-header">
-                Log In form
+            Login your account now
             </div>
             <div class="card-body">
                 <form action="/logauth/login" method="POST">
-                    <div class="mb-3">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
                     <div class="mb-3">
                         <label for="email">Email Address</label>
                         <input type="email" class="form-control" id="email" name="email">
@@ -36,14 +31,6 @@
                     <div class="mb-3">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="passwordConfirm">Confirm Password</label>
-                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
-                    </div>
-                    <div class="mb-3">
-                        <label for="ID_Number">ID Number</label>
-                        <input type="number" class="form-control" id="ID_Number" name="ID_Number">
                     </div>
                     <button type="submit" class="btn btn-primary"> LogIn</button>
                 </form>
