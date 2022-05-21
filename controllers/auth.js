@@ -9,28 +9,23 @@ const DB = mysql.createConnection({
 exports.register =(req, res) =>{
     console.log(req.body);
 
-    const{ name, email, password, passwordConfirm,ID_Number} = req.body;
+    const{ name, email, password, passwordConfirm} = req.body;
     
     DB.query('SELECT email FROM user WHERE email = ?',[email],(error,results) => {
         if(error){
             console.log(error);
         }
-        //we will check if the email is founded
-        //write your code here
-        //
-        if(name==''||email==''||password==''||passwordConfirm==''||ID_Number==''){
+        if(name==''||email==''||password==''||passwordConfirm==''){
             
             return res.render('register', {
                 message: "you can't register without entering request info"
                 });
-        }
-        DB.query('SELECT ID_Number FROM user WHERE ID_Number = ?',[ID_Number],(error,results) => {
-            if (results.length>0) {
-                return res.render('register', {
-                    message: 'the ID_Number is founded'
-                    });
             }
-        })
+        if(results.length>0){
+            return res.render('register', {
+                message: "the email is already exist"
+                });
+        }
         
              if(password !== passwordConfirm){
                 return res.render('register', {
@@ -38,9 +33,8 @@ exports.register =(req, res) =>{
                 });
                 
         }
-
         else{
-            DB.query('INSERT INTO user SET ?',{name:name,email:email,password:password,passwordConfirm:passwordConfirm,ID_Number:ID_Number},(error,results)=>{
+            DB.query('INSERT INTO user SET ?',{name:name,email:email,password:password,passwordConfirm:passwordConfirm},(error,results)=>{
                 
                 if(error)
                  {console.log(results)}

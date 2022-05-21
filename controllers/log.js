@@ -8,9 +8,9 @@ const DB = mysql.createConnection({
 
 exports.login =(req, res) =>{
     console.log(req.body);
-    const{ name, email} = req.body;
+    const{ password, email} = req.body;
 
-    DB.query('SELECT email,password FROM user WHERE name=? AND email=? ',[name ,email],(error,results) => {
+    DB.query('SELECT email,password FROM user WHERE password=?  AND email=? ',[password ,email],(error,results) => {
         console.log(results.length);
         if(error){
             console.log(error);
