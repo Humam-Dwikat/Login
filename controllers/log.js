@@ -16,7 +16,7 @@ exports.login =(req, res) =>{
             console.log(error);
         }else{
             if(results.length==1){
-                return res.render('index', {
+                return res.render('account', {
                     });
             }
             else{ return res.render('login', {
