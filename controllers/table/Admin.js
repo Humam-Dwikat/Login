@@ -5,7 +5,7 @@ app.use(bodyParser.json());
 var db = require("../db")
 
 email="Admin@test"
-
+//this api get the data from table doctor
 app.get('/getAllDoctor',async(request,response)=>{
     if(email=="Admin@test"){
     let [result,rows] = await db.connection.execute("SELECT * FROM doctor");
@@ -13,7 +13,7 @@ app.get('/getAllDoctor',async(request,response)=>{
     }
   });
   
-  
+// this api delete data from table doctor by admin manage 
   app.delete("/deleteDoctor/:id", async (req, res) => {
     if(email=="Admin@test"){
     try {
@@ -29,7 +29,7 @@ app.get('/getAllDoctor',async(request,response)=>{
   });
 
 
-
+//this api get data from patients table 
   app.get('/getAllPatients',async(request,response)=>{
     if(email=="Admin@test"){
     let [result,rows] = await db.connection.execute("SELECT * FROM patients");
@@ -37,7 +37,7 @@ app.get('/getAllDoctor',async(request,response)=>{
     }
   });
   
-  
+ // this api delete data from table patient by admin manage  
   app.delete("/deletePatients/:id", async (req, res) => {
     if(email=="Admin@test"){
     try {
@@ -59,7 +59,7 @@ app.get('/getAllDoctor',async(request,response)=>{
     }
   });
   
-
+// this api delete data from table Appointment  by admin manage 
   app.delete("/deleteAppointment/:id", async (req, res) => {
     if(email=="Admin@test"){
     try {
