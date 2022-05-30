@@ -4,7 +4,7 @@ var bodyParserurl = bodyParser.urlencoded({ extended: true });
 app.use(bodyParser.json());
 var db = require("../db")
 
-
+// this api post data to table Doctor
 app.post('/Create/Doctor',bodyParserurl, async (req, res) => {
     const userDetails = req.body;
     var sql = 'INSERT INTO doctor SET ?';
@@ -21,14 +21,14 @@ app.post('/Create/Doctor',bodyParserurl, async (req, res) => {
     }
   })
   
-  
+  // this api get data to table Doctor
   app.get('/get_Doctor',async(request,response)=>{
     
     let [result,rows] = await db.connection.execute("SELECT * FROM doctor");
      response.status(200).json(result);
   });
   
-  
+  // this api delete data to table Doctor
   app.delete("/delete_doctor/:id", async (req, res) => {
   
     try {
