@@ -16,7 +16,7 @@ const DB = mysql.createConnection({
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
-
+//this hasdaspdajksdp[]
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
